@@ -34,7 +34,7 @@ const Menu = ({ children }) => {
                             </a>
                         </li>
                         <li>
-                            <a className="link-menu" href="/Customer/Registry.js">
+                            <a className="link-menu" href="/Customer/Registry">
                                 <i class="fa-solid fa-user-plus"></i>
                                 <span>Cadastro de Clientes</span>
                             </a>

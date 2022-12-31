@@ -1,0 +1,11 @@
+.CadastrarCliente header {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.centraliza {
+    padding: 0px 40px 0px 15px;
+}

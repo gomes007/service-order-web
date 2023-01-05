@@ -2,11 +2,8 @@ import React from 'react';
 import Bar from "../components/Charts/Bar";
 import submitApi from '../config/submitApi';
 import Pie from "../components/Charts/Pie";
-import Line from "../components/Charts/Line";
 
-const Home = ({vendasMes, vendasCategoria, vendasDia}) => {
-
-
+const Home = ({vendasMes, vendasCategoria}) => {
 
     return (
         <>
@@ -19,15 +16,9 @@ const Home = ({vendasMes, vendasCategoria, vendasDia}) => {
                     <Pie vendasCategoria={vendasCategoria} />
                 </div>
 
-                <div className="row">
-                    <div className="col-md-12">
-                        <Line vendasDia={vendasDia} />
-                    </div>
-                </div>
             </div>
         </>
     )
-
 }
 
 export const getServerSideProps = async () => {

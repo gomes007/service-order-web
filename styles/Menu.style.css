@@ -14,7 +14,7 @@
 }
 
 .site .content {
-    padding: 10px 20px;
+    padding: 10px 5px;
 }
 
 .site.fechado {
@@ -114,3 +114,24 @@
 .menu .conteudo-menu .item-menu.sub li a.link-menu {
     font-size: 13px;
 }
+
+@media (max-width: 1060px) {
+    .site.aberto,
+    .site.fechado,
+    .site {
+        margin: 0;
+        width: 100%;
+        transition: all 0.5s;
+        z-index: 2;
+        position: relative;
+    }
+
+    .menu {
+        z-index: 4;
+        width: 230px;
+    }
+
+    .navbar .btn-menu{transition: all 0.5s;}
+    .site.aberto .navbar .btn-menu {margin-left: 230px;}
+}
+

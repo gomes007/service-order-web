@@ -1,0 +1,30 @@
+const TableSales = ({sales}) => {
+    return (
+        <div className="sales-table">
+            <table className="table table-striped">
+                <thead>
+                <tr>
+                    <th>Quantity</th>
+                    <th>Description</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                {
+                    sales?.map((sale, index) => {
+                        return (
+                            <tr key={index}>
+                                <td>{sale.quantity}</td>
+                                <td>{sale.description}</td>
+                                <td></td>
+                            </tr>
+                        )
+                    })
+                }
+                </tbody>
+            </table>
+        </div>
+    )
+}
+
+export default TableSales

@@ -6,7 +6,6 @@ import '../styles/NavTitle.style.css'
 import '../styles/Form.style.css'
 import '../styles/FormEnd.css'
 
-
 import Menu from "../components/Menu/Menu";
 
 export default function App({ Component, pageProps }) {

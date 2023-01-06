@@ -149,18 +149,17 @@ const AddressForm = ({addressesList, setAddressesList}) => {
                             />
                         </div>
                     </>
+                </div>
 
-                    {address.index !== undefined && (
-                        <input type='hidden' name='index' value={address.index}/>
-                    )}
+                {address.index !== undefined && (
+                    <input type='hidden' name='index' value={address.index}/>
+                )}
 
-                    <div className="col-md-3">
-                        <button className="btn btn-primary"
-                                onClick={() => handleAddAddress()}>
-                            {address.index === undefined ? 'Add' : 'Edit'}
-                        </button>
-                    </div>
-
+                <div className="buttonAddEdit">
+                    <button className="btn btn-outline-secondary"
+                            onClick={() => handleAddAddress()}>
+                        {address.index === undefined ? 'Add' : 'Edit'}
+                    </button>
                 </div>
             </div>
 

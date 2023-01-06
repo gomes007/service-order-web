@@ -3,12 +3,12 @@ const NavTitle = ({title, path}) => {
       <div className="nav-title">
           <h1>{title}</h1>
           <div className="path">
-              <nav aria-label="breadcrumb">
+              <nav>
                   <ol className="breadcrumb">
                       {
                           path.map((item, index) => {
                               return (
-                                  <li className="breadcrumb item" key={index}>
+                                  <li className="breadcrumb-item" key={index}>
                                       <a href={item.link}>{item.name}</a>
                                   </li>
                               )

@@ -23,6 +23,21 @@ const TabForm = ({tabs}) => {
                     {tabs[activeTab].content}
                 </div>
 
+                <div className="paginationButton">
+                    <button className='btn btn-outline-secondary btn-sm'
+                            onClick={() => setActiveTab(activeTab - 1)}
+                            disabled={activeTab === 0}>
+                        <i className="fa-solid fa-arrow-left ml-15px"></i>
+                        Back
+                    </button>
+                    <button className="btn btn-outline-secondary btn-sm"
+                            onClick={() => setActiveTab(activeTab + 1)}
+                            disabled={activeTab === tabs.length - 1}>
+                        Next
+                        <i className="fa-solid fa-arrow-right mr-15px"></i>
+                    </button>
+                </div>
+
             </div>
         </>
     );

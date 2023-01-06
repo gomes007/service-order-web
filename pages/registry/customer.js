@@ -6,6 +6,7 @@ import customerService from "../api/services/customerService";
 import AddressForm from "../../components/Form/AddressForm";
 import TabForm from "../../components/TabForm/TabForm";
 
+
 const CustomerRegistry = () => {
 
     const [address, setAddress] = useState([])
@@ -67,187 +68,196 @@ const CustomerRegistry = () => {
                 ]}
             />
 
+
             <div className="content">
-            <TabForm
-                tabs={[
-                    {
-                        label: 'Customer Data',
-                        content: (
-                            <>
-                                <div className="row">
-                                    <div className="col-md-12">
-                                        <h3>
-                                            <i className="fa fa-address-card" aria-hidden="true"></i>
-                                            Customer Data
-                                        </h3>
-                                    </div>
-                                </div>
-
-                                {/* Tipo, Situação, Nome, Email */}
-                                <div className="row">
-                                    <div className="col-md-3">
-                                        <FieldForm
-                                            label="Customer type"
-                                            type="select"
-                                            name='companyType'
-                                            value={customer.companyType}
-                                            onChange={(e) => handleCustomer(e)}
-                                            options={[
-                                                {value: "select", label: "select"},
-                                                {value: "PERSON", label: "Person"},
-                                                {value: "COMPANY", label: "Company"},
-                                            ]}
-                                        />
+                <TabForm
+                    tabs={[
+                        {
+                            label: 'General Informations',
+                            content: (
+                                <>
+                                    <div className="row">
+                                        <div className="col-md-12">
+                                            <h3>
+                                                <i className="fa fa-address-card" aria-hidden="true"></i>
+                                                Customer Data
+                                            </h3>
+                                        </div>
                                     </div>
 
-                                    <div className="col-md-3">
-                                        <FieldForm
-                                            label="Situation"
-                                            type="select"
-                                            name='situation'
-                                            value={customer.situation}
-                                            onChange={(e) => handleCustomer(e)}
-                                            options={[
-                                                {value: "select", label: "select"},
-                                                {value: "ACTIVE", label: "Active"},
-                                                {value: "INACTIVE", label: "Inactive"},
-                                            ]}
-                                        />
-                                    </div>
+                                    {/* Tipo, Situação, Nome, Email */}
+                                    <div className="row">
+                                        <div className="col-md-3">
+                                            <FieldForm
+                                                label="Customer type"
+                                                type="select"
+                                                name='companyType'
+                                                value={customer.companyType}
+                                                onChange={(e) => handleCustomer(e)}
+                                                options={[
+                                                    {value: "select", label: "select"},
+                                                    {value: "PERSON", label: "Person"},
+                                                    {value: "COMPANY", label: "Company"},
+                                                ]}
+                                            />
+                                        </div>
 
-                                    <div className="col-md-3">
-                                        <FieldForm
-                                            label="Name"
-                                            type="text"
-                                            name='name'
-                                            value={customer.name.value}
-                                            onChange={(e) => handleCustomer(e)}
-                                        />
-                                    </div>
+                                        <div className="col-md-3">
+                                            <FieldForm
+                                                label="Situation"
+                                                type="select"
+                                                name='situation'
+                                                value={customer.situation}
+                                                onChange={(e) => handleCustomer(e)}
+                                                options={[
+                                                    {value: "select", label: "select"},
+                                                    {value: "ACTIVE", label: "Active"},
+                                                    {value: "INACTIVE", label: "Inactive"},
+                                                ]}
+                                            />
+                                        </div>
 
-                                    <div className="col-md-3">
-                                        <FieldForm
-                                            label="Email"
-                                            type="email"
-                                            name='email'
-                                            value={customer.email.value}
-                                            onChange={(e) => handleCustomer(e)}
-                                        />
-                                    </div>
+                                        <div className="col-md-3">
+                                            <FieldForm
+                                                label="Name"
+                                                type="text"
+                                                name='name'
+                                                value={customer.name.value}
+                                                onChange={(e) => handleCustomer(e)}
+                                            />
+                                        </div>
 
-                                    {
-                                        customer.companyType === "PERSON" ? (
-                                            <>
-                                                <div className="col-md-3">
-                                                    <FieldForm
-                                                        label="CPF"
-                                                        type="text"
-                                                        name="cpf"
-                                                        value={customer.cpf}
-                                                        onChange={(e) => handleCustomer(e)}
-                                                    />
-                                                </div>
-                                            </>
-                                        ) : (
-                                            customer.companyType === "COMPANY" && (
+                                        <div className="col-md-3">
+                                            <FieldForm
+                                                label="Email"
+                                                type="email"
+                                                name='email'
+                                                value={customer.email.value}
+                                                onChange={(e) => handleCustomer(e)}
+                                            />
+                                        </div>
+
+                                        {
+                                            customer.companyType === "PERSON" ? (
                                                 <>
-                                                    <div className="col md 3">
-                                                        <FieldForm
-                                                            label="CNPJ"
-                                                            type="text"
-                                                            name="cnpj"
-                                                            value={customer.cnpj}
-                                                            onChange={(e) => handleCustomer(e)}
-                                                        />
-                                                    </div>
-
                                                     <div className="col-md-3">
                                                         <FieldForm
-                                                            label="Razão Social"
+                                                            label="CPF"
                                                             type="text"
-                                                            name="razaoSocial"
-                                                            value={customer.razaoSocial}
-                                                            onChange={(e) => handleCustomer(e)}
-                                                        />
-                                                    </div>
-
-                                                    <div className="col-md-3">
-                                                        <FieldForm
-                                                            label="Fantasy Name"
-                                                            type="text"
-                                                            name="fantasyName"
-                                                            value={customer.fantasyName}
-                                                            onChange={(e) => handleCustomer(e)}
-                                                        />
-                                                    </div>
-
-                                                    <div className="col-md-3">
-                                                        <FieldForm
-                                                            label="Inscrição Estadual"
-                                                            type="text"
-                                                            name="inscricaoEstadual"
-                                                            value={customer.inscricaoEstadual}
-                                                            onChange={(e) => handleCustomer(e)}
-                                                        />
-                                                    </div>
-
-                                                    <div className="col-md-3">
-                                                        <FieldForm
-                                                            label="Contact Name"
-                                                            type="text"
-                                                            name="contactName"
-                                                            value={customer.contactName}
+                                                            name="cpf"
+                                                            value={customer.cpf}
                                                             onChange={(e) => handleCustomer(e)}
                                                         />
                                                     </div>
                                                 </>
+                                            ) : (
+                                                customer.companyType === "COMPANY" && (
+                                                    <>
+                                                        <div className="col md 3">
+                                                            <FieldForm
+                                                                label="CNPJ"
+                                                                type="text"
+                                                                name="cnpj"
+                                                                value={customer.cnpj}
+                                                                onChange={(e) => handleCustomer(e)}
+                                                            />
+                                                        </div>
+
+                                                        <div className="col-md-3">
+                                                            <FieldForm
+                                                                label="Razão Social"
+                                                                type="text"
+                                                                name="razaoSocial"
+                                                                value={customer.razaoSocial}
+                                                                onChange={(e) => handleCustomer(e)}
+                                                            />
+                                                        </div>
+
+                                                        <div className="col-md-3">
+                                                            <FieldForm
+                                                                label="Fantasy Name"
+                                                                type="text"
+                                                                name="fantasyName"
+                                                                value={customer.fantasyName}
+                                                                onChange={(e) => handleCustomer(e)}
+                                                            />
+                                                        </div>
+
+                                                        <div className="col-md-3">
+                                                            <FieldForm
+                                                                label="Inscrição Estadual"
+                                                                type="text"
+                                                                name="inscricaoEstadual"
+                                                                value={customer.inscricaoEstadual}
+                                                                onChange={(e) => handleCustomer(e)}
+                                                            />
+                                                        </div>
+
+                                                        <div className="col-md-3">
+                                                            <FieldForm
+                                                                label="Contact Name"
+                                                                type="text"
+                                                                name="contactName"
+                                                                value={customer.contactName}
+                                                                onChange={(e) => handleCustomer(e)}
+                                                            />
+                                                        </div>
+                                                    </>
+                                                )
                                             )
-                                        )
-                                    }
+                                        }
 
-                                    <div className="col-md-3">
-                                        <FieldForm
-                                            label="phone"
-                                            type="text"
-                                            name="phone"
-                                            value={customer.phone}
-                                            onChange={(e) => handleCustomer(e)}
-                                        />
+                                        <div className="col-md-3">
+                                            <FieldForm
+                                                label="Phone"
+                                                type="text"
+                                                name="phone"
+                                                value={customer.phone}
+                                                onChange={(e) => handleCustomer(e)}
+                                            />
+                                        </div>
                                     </div>
-                                </div>
 
-                                <div className="row">
-                                    <div className="col-md-12">
-                                        <FieldForm
-                                            label="Other Informations"
-                                            type="textarea"
-                                            rows={4}
-                                            name="otherInformations"
-                                            value={customer.otherInformations}
-                                            onChange={(e) => handleCustomer(e)}
-                                        />
+                                    <div className="row">
+                                        <div className="col-md-12">
+                                            <FieldForm
+                                                label="Other Informations"
+                                                type="textarea"
+                                                rows={4}
+                                                name="otherInformations"
+                                                value={customer.otherInformations}
+                                                onChange={(e) => handleCustomer(e)}
+                                            />
+                                        </div>
                                     </div>
-                                </div>
-                            </>
-                        )
-                    },
-                    {
-                        label: 'Address',
-                        content: (
-                            <>
-                                <AddressForm
-                                    addressesList={address}
-                                    setAddressesList={setAddress}
-                                />
-                            </>
-                        )
-                    },
-                ]}
-            />
+                                </>
+                            )
+                        },
+                        {
+                            label: 'Customer Address',
+                            content: (
+                                <>
+                                    <AddressForm
+                                        addressesList={address}
+                                        setAddressesList={setAddress}
+                                    />
+                                </>
+                            )
+                        },
+                    ]}
+                />
 
-            <div className="col-md-3">
-                <button onClick={saveCustomer} type="button" className="btn btn-primary">Save</button>
-            </div>
+
+                <div className="row">
+                    <div className="col-md-12">
+                        <div className="float-right">
+                            <button onClick={saveCustomer} type="button" className="btn btn-success">
+                                <i className="fa fa-save mr-12px"></i>
+                                Save
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </>
     )

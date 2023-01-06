@@ -9,6 +9,8 @@
 
 .form-content h3 {
     font-size: 1.2em;
+    margin-bottom: 14px;
+    margin-top: -12px;
 }
 
 .form-content h3 i {
@@ -50,4 +52,46 @@
 .form-content .menuTab ul li a {
     text-decoration: none;
     color: #000;
+}
+
+.form-content .paginationButton {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.form-content .paginationButton button:first-child {
+    margin-right: 10px;
+}
+
+.mr-15px{
+    margin-left: 10px;
+}
+
+.ml-15px{
+    margin-right: 10px;
+}
+
+.mr-12px{
+    margin-right: 12px;
+}
+
+.float-right {
+    text-align: right;
+}
+
+.tableButtons button:first-child {
+    margin-right: 10px;
+    margin-bottom: 5px;
+}
+
+.tableButtons button {
+    border-color: transparent;
+}
+
+.tb {
+    margin-top: 20px;
+}
+
+.buttonAddEdit {
+    text-align: right;
 }

@@ -21,7 +21,7 @@ const TableAddress = ({addresses, setEditAddress, setDeleteAddress}) => {
     }
 
     return (
-        <div className="addressTable">
+        <div className="table-responsive tb">
             <table className="table table-striped">
                 <thead>
                 <tr>
@@ -47,14 +47,14 @@ const TableAddress = ({addresses, setEditAddress, setDeleteAddress}) => {
                                 <td>{address.neighborhood}</td>
                                 <td>{address.city}</td>
                                 <td>{address.state}</td>
-                                <td>
-                                    <button className='btn btn-primary'
+                                <td className='tableButtons'>
+                                    <button className='btn btn-outline-dark'
                                             onClick={() => setEditAddress({...address, index})}>
-                                        Edit
+                                        <i className="fa-solid fa-pen"></i>
                                     </button>
-                                    <button className='btn btn-danger'
+                                    <button className='btn btn-outline-danger'
                                             onClick={() => handleDeleteAddress(index)}>
-                                        Delete
+                                        <i className="fa-solid fa-trash-can"></i>
                                     </button>
                                 </td>
                             </tr>

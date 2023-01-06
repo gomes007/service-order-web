@@ -5,11 +5,11 @@
 .form-content-main {
     border: 1px solid #cccccc;
     border-radius: 5px;
-    margin-top: 20px;
+    margin-top: 30px;
     margin-bottom: 20px;
-    background-color: #fff;
     padding: 10px;
     padding-top: 5px;
+    color: black;
 }
 
 .form-content-main h1 {

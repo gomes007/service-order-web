@@ -1,4 +1,4 @@
-const TableSales = ({sales}) => {
+const TableSales = ({sales, setEditSale}) => {
     return (
         <div className="sales-table">
             <table className="table table-striped">
@@ -16,7 +16,12 @@ const TableSales = ({sales}) => {
                             <tr key={index}>
                                 <td>{sale.quantity}</td>
                                 <td>{sale.description}</td>
-                                <td></td>
+                                <td>
+                                    <button className="btn btn-primary"
+                                        onClick={() => setEditSale({...sale, index})}>
+                                            Edit
+                                    </button>
+                                </td>
                             </tr>
                         )
                     })

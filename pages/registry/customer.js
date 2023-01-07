@@ -9,8 +9,11 @@ import TabForm from "../../components/TabForm/TabForm";
 
 const CustomerRegistry = () => {
 
-    const [address, setAddress] = useState([])
 
+    const [credit, setCredit] = useState({
+        creditLimit: 0.0,
+        creditLimitExceeded: false
+    })
 
     const [customer, setCustomer] = useState({
         name: "",
@@ -31,6 +34,8 @@ const CustomerRegistry = () => {
         contactName: "",
     });
 
+    const [address, setAddress] = useState([])
+
     const handleCustomer = (e) => {
         setCustomer({
             ...customer,
@@ -39,9 +44,22 @@ const CustomerRegistry = () => {
     }
 
 
+    const handleCredit = (e) => {
+
+        var actualValue = credit[e.target.name]
+        var newValue = (e.target.name === 'creditLimitExceeded') ? !actualValue : e.target.value;
+
+        setCredit({
+            ...credit,
+            [e.target.name]: newValue
+        });
+    }
+
+
     const saveCustomer = () => {
 
         let data = {
+            ...credit,
             generalInformation: {
                 ...customer
             },
@@ -122,7 +140,7 @@ const CustomerRegistry = () => {
                                                 label="Name"
                                                 type="text"
                                                 name='name'
-                                                value={customer.name.value}
+                                                value={customer.name}
                                                 onChange={(e) => handleCustomer(e)}
                                             />
                                         </div>
@@ -132,7 +150,7 @@ const CustomerRegistry = () => {
                                                 label="Email"
                                                 type="email"
                                                 name='email'
-                                                value={customer.email.value}
+                                                value={customer.email}
                                                 onChange={(e) => handleCustomer(e)}
                                             />
                                         </div>
@@ -216,6 +234,27 @@ const CustomerRegistry = () => {
                                                 onChange={(e) => handleCustomer(e)}
                                             />
                                         </div>
+
+                                        <div className="col-md-3">
+                                            <FieldForm
+                                                label="CreditLimit"
+                                                type="number"
+                                                name="creditLimit"
+                                                value={credit.creditLimit}
+                                                onChange={(e) => handleCredit(e)}
+                                            />
+                                        </div>
+
+                                        <div className="col-md-3 mt-4">
+                                            <FieldForm
+                                                label="CreditLimitExceeded"
+                                                type="checkbox"
+                                                name="creditLimitExceeded"
+                                                value={credit.creditLimitExceeded}
+                                                onChange={(e) => handleCredit(e)}
+                                            />
+                                        </div>
+
                                     </div>
 
                                     <div className="row">

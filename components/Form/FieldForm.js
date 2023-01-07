@@ -20,9 +20,15 @@ const FieldForm = ({ label, name, type, value, options, onChange, error, rows })
                     </>
                     :
                     type === 'checkbox' ?
-                        <div className="form-check">
-                            <input className="form-check-input" type="checkbox" id={name} name={name} value={value} onChange={onChange} />
-                            <label claNssame="form-check-label" htmlFor={name}>
+                        <div className="form-switch">
+                            <input className="form-check-input"
+                                   type="checkbox"
+                                   id={name}
+                                   name={name}
+                                   value={value}
+                                   checked={value}
+                                   onChange={onChange} />
+                            <label className="form-check-label" htmlFor={name}>
                                 {label}
                             </label>
                         </div>

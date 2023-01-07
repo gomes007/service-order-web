@@ -78,7 +78,7 @@ const AddressForm = ({addressesList, setAddressesList}) => {
             <div className="address-form">
                 <div className="row">
                     <>
-                        <div className="col-md-3">
+                        <div className="col-md-2">
                             <FieldForm
                                 label="ZipCode"
                                 type="text"
@@ -88,7 +88,7 @@ const AddressForm = ({addressesList, setAddressesList}) => {
                             />
                         </div>
 
-                        <div className="col-md-3">
+                        <div className="col-md-5">
                             <FieldForm
                                 label="Street"
                                 type="text"
@@ -98,7 +98,7 @@ const AddressForm = ({addressesList, setAddressesList}) => {
                             />
                         </div>
 
-                        <div className="col-md-3">
+                        <div className="col-md-2">
                             <FieldForm
                                 label="Number"
                                 type="number"

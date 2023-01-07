@@ -12,6 +12,8 @@ const Form = () => {
                 salesList={sale}
                 setSalesList={setSale}
             />
+
+
         </div>
         )
 }

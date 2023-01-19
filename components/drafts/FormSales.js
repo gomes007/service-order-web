@@ -1,13 +1,18 @@
 import {useState} from "react";
-import FieldForm from "./FieldForm";
-import TableSales from "./TableSales";
+import FieldForm from "../Form/FieldForm";
+import TableSales from "../Form/TableSales";
+import CategoryType from "./CategoryType";
 
-const FormEnd = ({salesList, setSalesList}) => {
+const FormSales = ({salesList, setSalesList}) => {
 
 
     const [sale, setSale] = useState({
         quantity: '',
         description: ''
+    });
+
+    const [category, setCategory] = useState({
+        categoryType: ''
     });
 
     const handleSale = (e) => {
@@ -91,11 +96,15 @@ const FormEnd = ({salesList, setSalesList}) => {
                         value={sale?.description}
                         onChange={(e) => handleSale(e)}/>
                 </div>
+
+                <div className="col-md-3">
+                    <CategoryType
+                        category={category}
+                        setCategory={setCategory}
+                    />
+                </div>
             </div>
 
-            {/*{sale.index !== undefined && (*/}
-            {/*    <input type="hidden" name="index" value={sale.index} />*/}
-            {/*)}*/}
 
             <div className="col-md-3">
                 <button className="btn btn-primary" onClick={() => handleAddEditSale()}>
@@ -113,4 +122,4 @@ const FormEnd = ({salesList, setSalesList}) => {
     );
 }
 
-export default FormEnd
+export default FormSales

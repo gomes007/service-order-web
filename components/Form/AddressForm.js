@@ -1,6 +1,7 @@
 import {useState} from "react";
 import FieldForm from "./FieldForm";
 import TableAddress from "./TableAddress";
+import AddressType from "./AddressType";
 
 const AddressForm = ({addressesList, setAddressesList}) => {
 
@@ -12,8 +13,14 @@ const AddressForm = ({addressesList, setAddressesList}) => {
         neighborhood: '',
         city: '',
         state: '',
-        complement: ''
+        complement: '',
+
     });
+
+    const [addressType, setAddressType] = useState({
+        label: '',
+    });
+
 
     const handleAddress = (e) => {
         setAddress({
@@ -78,6 +85,13 @@ const AddressForm = ({addressesList, setAddressesList}) => {
             <div className="address-form">
                 <div className="row">
                     <>
+                        <div className="col-md-3">
+                            <AddressType
+                                address={address}
+                                setAddress={setAddress}
+                            />
+                        </div>
+
                         <div className="col-md-2">
                             <FieldForm
                                 label="ZipCode"

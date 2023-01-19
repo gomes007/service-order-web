@@ -3,8 +3,8 @@ import {useState} from "react";
 import NavTitle from "../../components/NavTitle/NavTitle";
 import FieldForm from "../../components/Form/FieldForm";
 import customerService from "../api/services/customerService";
-import AddressForm from "../../components/Form/AddressForm";
 import TabForm from "../../components/TabForm/TabForm";
+import AddressForm from "../../components/Form/AddressForm";
 
 
 const CustomerRegistry = () => {
@@ -32,9 +32,12 @@ const CustomerRegistry = () => {
         razaoSocial: "",
         inscricaoEstadual: "",
         contactName: "",
-    });
+    })
 
     const [address, setAddress] = useState([])
+
+
+
 
     const handleCustomer = (e) => {
         setCustomer({
@@ -46,8 +49,8 @@ const CustomerRegistry = () => {
 
     const handleCredit = (e) => {
 
-        var actualValue = credit[e.target.name]
-        var newValue = (e.target.name === 'creditLimitExceeded') ? !actualValue : e.target.value;
+       var actualValue = credit[e.target.name];
+       var newValue = (e.target.name === 'creditLimitExceeded') ? !actualValue : e.target.value;
 
         setCredit({
             ...credit,
@@ -63,11 +66,40 @@ const CustomerRegistry = () => {
             generalInformation: {
                 ...customer
             },
-            addresses: address
+            addresses: {
+                ...address
+            }
         }
 
         return customerService.createNewCustomer(data)
             .then(() => {
+                setCustomer({
+                    name: "",
+                    email: "",
+                    phone: "",
+                    otherInformations: "",
+                    situation: "select",
+                    companyType: "select",
+                    cpf: '',
+                    fantasyName: "",
+                    cnpj: "",
+                    razaoSocial: "",
+                    inscricaoEstadual: "",
+                    contactName: "",
+                });
+                setCredit({
+                    creditLimit: 0.0,
+                    creditLimitExceeded: false
+                });
+                setAddress({
+                    zipCode: '',
+                    street: '',
+                    number: '',
+                    neighborhood: '',
+                    city: '',
+                    state: '',
+                    complement: ''
+                })
                 console.log(data);
             }).catch((err) => {
                 console.log(err);

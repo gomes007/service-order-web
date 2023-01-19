@@ -1,4 +1,4 @@
-import FormEnd from "../../components/Form/FormEnd";
+import FormSales from "../../components/drafts/FormSales";
 import {useState} from "react";
 
 const Form = () => {
@@ -8,7 +8,7 @@ const Form = () => {
     return (
         <div className="form-content-main">
             <h1>Form</h1>
-            <FormEnd
+            <FormSales
                 salesList={sale}
                 setSalesList={setSale}
             />

@@ -28,9 +28,9 @@ const Menu = ({ children }) => {
                     {/* Menu com Dropdow */}
                     <ItemMenu title="Usuários" icon="fa-solid fa-user">
                         <li>
-                            <a className="link-menu" href="/registry/form">
+                            <a className="link-menu" href="/dashboard/sales">
                                 <i className="fa-solid fa-user-plus"></i>
-                                <span>Novo Usuário</span>
+                                <span>DashSales</span>
                             </a>
                         </li>
                         <li>

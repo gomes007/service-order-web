@@ -5,6 +5,8 @@ import '../styles/Navbar.style.css'
 import '../styles/NavTitle.style.css'
 import '../styles/Form.style.css'
 import '../styles/FormEnd.css'
+import '../styles/AddressType.style.css'
+import '../styles/SalesPages.style.css'
 
 import Menu from "../components/Menu/Menu";
 

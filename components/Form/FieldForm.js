@@ -20,7 +20,7 @@ const FieldForm = ({ label, name, type, value, options, onChange, error, rows })
                     </>
                     :
                     type === 'checkbox' ?
-                        <div className="form-switch">
+                        <div className="form-check">
                             <input className="form-check-input"
                                    type="checkbox"
                                    id={name}

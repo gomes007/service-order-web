@@ -22,7 +22,7 @@ const Line = ({vendasDia}) => {
     return (
         <>
             <Chart
-                chartType="LineChart"
+                chartType="Line"
                 width="100%"
                 height="400px"
                 data={data}

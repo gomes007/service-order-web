@@ -1,6 +1,7 @@
 import React from 'react';
 import GraficoLinhaSocket from '../components/Charts/GraficoLinhaSocket';
 import GraficoPizza from "../components/Charts/GraficoPizza";
+import Bar from "../components/Charts/Bar";
 
 
 const Home = () => {

@@ -17,7 +17,22 @@ const Bar = ({vendasMes}) => {
         chart: {
             title: "Company Performance",
             subtitle: "Sales, Expenses, and Profit: 2014-2017",
+            backgroundColor: {
+                fill: '#000'
+            }
         },
+        bars: 'horizontal',
+        hAxis: {format: 'decimal'},
+        height: 400,
+        annotations: {
+            alwaysOutside: true,
+            textStyle: {
+                fontSize: 14,
+                color: 'black',
+                auraColor: 'none'
+            }
+        },
+        colors: ['#1b9e77']
     };
 
     return (

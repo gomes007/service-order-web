@@ -23,7 +23,7 @@ io.on('connection', socket => {
     console.log('New client connected');
 
     function getGraficos() {
-        connection.query(`SELECT * FROM vendas`, async (err, rows) => {
+        connection.query(`SELECT *, DATE_FORMAT(vendas.data, '%m/%Y') AS mes FROM vendas`, async (err, rows) => {
             if (err) throw err;
 
             if (rows.length > 0 && JSON.stringify(rows) !== JSON.stringify(lastSearch)) {

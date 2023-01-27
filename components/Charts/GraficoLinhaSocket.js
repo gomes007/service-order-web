@@ -4,16 +4,17 @@ import io from 'socket.io-client';
 import submitApi from "../../config/submitApi";
 
 
-const GraficoLinhaSocket = () => {
+
+const GraficoLinhaSocket = ({h = "300px"}) => {
 
     const [vendas, setVendas] = useState({});
     const socket = io('http://localhost:8888', { transports : ['websocket'] });
 
     let dadosBase = null;
 
-
     useEffect(() => {
         socket.on('DADOS_GRAFICO', dados => {
+            console.log(dados);
             let data = [
                 ["Ano", "Vendas"],
             ];
@@ -43,11 +44,12 @@ const GraficoLinhaSocket = () => {
     }, []);
 
     const options = {
-        chart: {
-            title: "Vendas por mês",
-            subtitle: "Vendas mensais",
-        },
+        title: 'Company Performance',
+        hAxis: {title: 'Year',  titleTextStyle: {color: '#333'}},
+        backgroundColor: '#ffd700',
+        bar: {textPosition: 'auto'}
     };
+
 
 
     return (

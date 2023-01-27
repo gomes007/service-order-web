@@ -12,6 +12,12 @@ const GraficoPizza = ({h = "280px"}) => {
         title: "Vendas por categoria",
         pieHole: 0.4,
         is3D: false,
+        fontSize: 11,
+        backgroundColor: 'grey',
+        width: "100%",
+        sliceVisibilityThreshold: 0,
+        legend: 'left',
+        height: 400,
     };
 
     let dadosBase = null;

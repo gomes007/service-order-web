@@ -1,6 +1,7 @@
 import {useState} from "react";
 import Navbar from "../Nabar/Navbar";
 import ItemMenu from "./ItemMenu";
+import AddClientForm from "../../pages/registry/ex";
 
 const Menu = ({ children }) => {
 
@@ -28,7 +29,7 @@ const Menu = ({ children }) => {
                     {/* Menu com Dropdow */}
                     <ItemMenu title="Usuários" icon="fa-solid fa-user">
                         <li>
-                            <a className="link-menu" href="/dashboard/sales">
+                            <a className="link-menu" href="/registry/ex">
                                 <i className="fa-solid fa-user-plus"></i>
                                 <span>DashSales</span>
                             </a>

@@ -1,32 +1,42 @@
-import {useState} from "react";
+import React, {useEffect, useState} from "react";
 import FieldForm from "./FieldForm";
 import TableAddress from "./TableAddress";
-import AddressType from "./AddressType";
+import axios from "axios";
 
 const AddressForm = ({addressesList, setAddressesList}) => {
 
     const [address, setAddress] = useState({
-        addressType: '',
         zipCode: '',
         street: '',
         number: '',
         neighborhood: '',
         city: '',
         state: '',
-        complement: '',
-
+        complement: ''
     });
 
-    const [addressType, setAddressType] = useState({
-        label: '',
-    });
+    const [addressType, setAddressType] = useState([]);
+
+    useEffect(() => {
+        axios.get('http://localhost:8080/address/types')
+            .then(res => {
+                setAddressType(res.data);
+            });
+    }, []);
 
 
     const handleAddress = (e) => {
         setAddress({
             ...address,
             [e.target.name]: e.target.value
-        });
+        })
+        if (e.target.name === "addressTypeId") {
+            setAddress({
+                ...address,
+                addressTypeId: e.target.value
+            });
+        }
+
 
         if (e.target.name === 'zipCode' && e.target.value.length === 8) {
             fetch(`https://viacep.com.br/ws/${e.target.value}/json/`)
@@ -44,16 +54,44 @@ const AddressForm = ({addressesList, setAddressesList}) => {
         }
     }
 
+    // const handleAddAddress = () => {
+    //     let newAddresses = addressesList;
+    //
+    //     if (address.index !== undefined) {
+    //         newAddresses[address.index] = address; //to edit if exist
+    //     } else {
+    //         if (newAddresses !== undefined && newAddresses.length > 0) {
+    //             newAddresses.push(address);
+    //         } else {
+    //             newAddresses = [address]
+    //         }
+    //     }
+    //
+    //     setAddressesList(newAddresses);
+    //
+    //     setAddress({
+    //         zipCode: '',
+    //         street: '',
+    //         number: '',
+    //         neighborhood: '',
+    //         city: '',
+    //         state: '',
+    //         complement: ''
+    //     });
+    // }
+
+
     const handleAddAddress = () => {
         let newAddresses = addressesList;
+        let selectedAddressType = addressType.find(type => type.id === address.addressTypeId);
 
         if (address.index !== undefined) {
-            newAddresses[address.index] = address; //to edit if exist
+            newAddresses[address.index] = {...address, addressType: selectedAddressType}; //to edit if exist
         } else {
             if (newAddresses !== undefined && newAddresses.length > 0) {
-                newAddresses.push(address);
+                newAddresses.push({...address, addressType: selectedAddressType});
             } else {
-                newAddresses = [address]
+                newAddresses = [{...address, addressType: selectedAddressType}]
             }
         }
 
@@ -71,6 +109,10 @@ const AddressForm = ({addressesList, setAddressesList}) => {
     }
 
 
+
+
+
+
     return (
         <>
             <div className="row">
@@ -86,10 +128,17 @@ const AddressForm = ({addressesList, setAddressesList}) => {
                 <div className="row">
                     <>
                         <div className="col-md-3">
-                            <AddressType
-                                address={address}
-                                setAddress={setAddress}
-                            />
+                            {/*<AddressType*/}
+                            {/*    address={address}*/}
+                            {/*    setAddress={setAddress}*/}
+                            {/*/>*/}
+                            <label htmlFor="addressType">Address Type:</label>
+                            <select className="form-control" name="addressTypeId" id="addressType" onChange={(e) => handleAddress(e)}>
+                                <option value="">Select an address type</option>
+                                {addressType && addressType.length > 0 && addressType.map(addressType => (
+                                    <option key={addressType.id} value={addressType.id}>{addressType.label}</option>
+                                ))}
+                            </select>
                         </div>
 
                         <div className="col-md-2">
@@ -181,6 +230,7 @@ const AddressForm = ({addressesList, setAddressesList}) => {
                 addresses={addressesList}
                 setEditAddress={setAddress}
                 setDeleteAddress={setAddressesList}
+                addressType={addressType}
             />
         </>
     )

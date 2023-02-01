@@ -30,6 +30,7 @@ const AddressForm = ({addressesList, setAddressesList}) => {
             ...address,
             [e.target.name]: e.target.value
         })
+        console.log(address)
         if (e.target.name === "addressTypeId") {
             setAddress({
                 ...address,
@@ -83,8 +84,8 @@ const AddressForm = ({addressesList, setAddressesList}) => {
 
     const handleAddAddress = () => {
         let newAddresses = addressesList;
-        let selectedAddressType = addressType.find(type => type.id === address.addressTypeId);
-
+        let selectedAddressType = addressType.find(type => type.id === parseInt(address.addressTypeId));
+        delete address.addressTypeId
         if (address.index !== undefined) {
             newAddresses[address.index] = {...address, addressType: selectedAddressType}; //to edit if exist
         } else {
@@ -97,6 +98,8 @@ const AddressForm = ({addressesList, setAddressesList}) => {
 
         setAddressesList(newAddresses);
 
+        console.log(addressesList)
+
         setAddress({
             zipCode: '',
             street: '',
@@ -107,7 +110,6 @@ const AddressForm = ({addressesList, setAddressesList}) => {
             complement: ''
         });
     }
-
 
 
 
@@ -147,7 +149,7 @@ const AddressForm = ({addressesList, setAddressesList}) => {
                                 type="text"
                                 name="zipCode"
                                 value={address?.zipCode}
-                                onChange={(e) => handleAddress(e)}
+                                onChange={(e) => handleAddress(e)}e
                             />
                         </div>
 

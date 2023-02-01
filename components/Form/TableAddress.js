@@ -1,6 +1,6 @@
 import Swal from "sweetalert2";
 
-const TableAddress = ({addresses, setEditAddress, setDeleteAddress, addressType}) => {
+const TableAddress = ({addresses, setEditAddress, setDeleteAddress}) => {
 
     const handleDeleteAddress = (index) => {
 
@@ -42,7 +42,7 @@ const TableAddress = ({addresses, setEditAddress, setDeleteAddress, addressType}
                         return (
                             <tr key={index}>
                                 <td>{address.zipCode}</td>
-                                <td>{addressType.find(type => type.id === address.addressTypeId)?.description}</td>
+                               <td>{address.addressType.label}</td>
                                 <td>{address.street}</td>
                                 <td>{address.number}</td>
                                 <td>{address.complement}</td>

@@ -66,10 +66,9 @@ const CustomerRegistry = () => {
             generalInformation: {
                 ...customer
             },
-            addresses: {
-                ...address
-            }
+            addresses: address
         }
+        console.log(data)
 
         return customerService.createNewCustomer(data)
             .then(() => {
@@ -91,15 +90,7 @@ const CustomerRegistry = () => {
                     creditLimit: 0.0,
                     creditLimitExceeded: false
                 });
-                setAddress({
-                    zipCode: '',
-                    street: '',
-                    number: '',
-                    neighborhood: '',
-                    city: '',
-                    state: '',
-                    complement: ''
-                })
+                setAddress([])
                 console.log(data);
             }).catch((err) => {
                 console.log(err);

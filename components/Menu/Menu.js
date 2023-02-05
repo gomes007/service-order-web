@@ -29,7 +29,7 @@ const Menu = ({ children }) => {
                     {/* Menu com Dropdow */}
                     <ItemMenu title="Usuários" icon="fa-solid fa-user">
                         <li>
-                            <a className="link-menu" href="/">
+                            <a className="link-menu" href="/dashboard/sales">
                                 <i className="fa-solid fa-user-plus"></i>
                                 <span>DashSales</span>
                             </a>
@@ -38,6 +38,12 @@ const Menu = ({ children }) => {
                             <a className="link-menu" href="/registry/customer">
                                 <i className="fa-solid fa-user-plus"></i>
                                 <span>Cadastro de Clientes</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a className="link-menu" href="/registry/fileUpload">
+                                <i className="fa-solid fa-user-plus"></i>
+                                <span>Dados</span>
                             </a>
                         </li>
                     </ItemMenu>

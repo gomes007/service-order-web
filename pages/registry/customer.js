@@ -91,7 +91,7 @@ const CustomerRegistry = () => {
                     creditLimitExceeded: false
                 });
                 setAddress([])
-                console.log(data);
+
             }).catch((err) => {
                 console.log(err);
             });
@@ -136,7 +136,6 @@ const CustomerRegistry = () => {
                                                 value={customer.companyType}
                                                 onChange={(e) => handleCustomer(e)}
                                                 options={[
-                                                    {value: "select", label: "select"},
                                                     {value: "PERSON", label: "Person"},
                                                     {value: "COMPANY", label: "Company"},
                                                 ]}
@@ -151,7 +150,6 @@ const CustomerRegistry = () => {
                                                 value={customer.situation}
                                                 onChange={(e) => handleCustomer(e)}
                                                 options={[
-                                                    {value: "select", label: "select"},
                                                     {value: "ACTIVE", label: "Active"},
                                                     {value: "INACTIVE", label: "Inactive"},
                                                 ]}

@@ -10,7 +10,8 @@ const FieldForm = ({ label, name, type, value, options, onChange, error, rows })
                 type === 'select' ?
                     <>
                         <label htmlFor={name}>{label}</label>
-                        <select className="form-control" id={name} name={name} value={value} onChange={onChange}>
+                        <select class="form-select" id={name} name={name} value={value} onChange={onChange}>
+                            <option value="">select an option</option>
                             {options.map((item, index) => {
                                 return (
                                     <option key={index} value={item.value}>{item.label}</option>

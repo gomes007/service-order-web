@@ -55,32 +55,6 @@ const AddressForm = ({addressesList, setAddressesList}) => {
         }
     }
 
-    // const handleAddAddress = () => {
-    //     let newAddresses = addressesList;
-    //
-    //     if (address.index !== undefined) {
-    //         newAddresses[address.index] = address; //to edit if exist
-    //     } else {
-    //         if (newAddresses !== undefined && newAddresses.length > 0) {
-    //             newAddresses.push(address);
-    //         } else {
-    //             newAddresses = [address]
-    //         }
-    //     }
-    //
-    //     setAddressesList(newAddresses);
-    //
-    //     setAddress({
-    //         zipCode: '',
-    //         street: '',
-    //         number: '',
-    //         neighborhood: '',
-    //         city: '',
-    //         state: '',
-    //         complement: ''
-    //     });
-    // }
-
 
     const handleAddAddress = () => {
         let newAddresses = addressesList;
@@ -98,8 +72,6 @@ const AddressForm = ({addressesList, setAddressesList}) => {
 
         setAddressesList(newAddresses);
 
-        console.log(addressesList)
-
         setAddress({
             zipCode: '',
             street: '',
@@ -110,9 +82,6 @@ const AddressForm = ({addressesList, setAddressesList}) => {
             complement: ''
         });
     }
-
-
-
 
 
     return (
@@ -130,12 +99,9 @@ const AddressForm = ({addressesList, setAddressesList}) => {
                 <div className="row">
                     <>
                         <div className="col-md-3">
-                            {/*<AddressType*/}
-                            {/*    address={address}*/}
-                            {/*    setAddress={setAddress}*/}
-                            {/*/>*/}
                             <label htmlFor="addressType">Address Type:</label>
-                            <select className="form-control" name="addressTypeId" id="addressType" onChange={(e) => handleAddress(e)}>
+                            <select class="form-select" name="addressTypeId" id="addressType"
+                                    onChange={(e) => handleAddress(e)}>
                                 <option value="">Select an address type</option>
                                 {addressType && addressType.length > 0 && addressType.map(addressType => (
                                     <option key={addressType.id} value={addressType.id}>{addressType.label}</option>
@@ -149,7 +115,7 @@ const AddressForm = ({addressesList, setAddressesList}) => {
                                 type="text"
                                 name="zipCode"
                                 value={address?.zipCode}
-                                onChange={(e) => handleAddress(e)}e
+                                onChange={(e) => handleAddress(e)} e
                             />
                         </div>
 

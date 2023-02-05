@@ -42,7 +42,7 @@ const TableAddress = ({addresses, setEditAddress, setDeleteAddress}) => {
                         return (
                             <tr key={index}>
                                 <td>{address.zipCode}</td>
-                               <td>{address.addressType.label}</td>
+                                <td>{address.addressType.label}</td>
                                 <td>{address.street}</td>
                                 <td>{address.number}</td>
                                 <td>{address.complement}</td>
